@@ -1,1 +1,19 @@
-{}
+{
+    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+    "extends": [
+        "group:monorepos",
+        "mergeConfidence:all-badges"
+    ],
+    "prConcurrentLimit": 10,
+    "packageRules": [
+        {
+            "description": "Group Azure and OpenTelemetry packages together as there are often conflicts otherwise",
+            "groupName": "Opentelemetry and Azure",
+            "groupSlug": "opentelemetry",
+            "matchPackageNames": [
+                "azure-monitor-opentelemetry",
+                "/^opentelemetry-instrumentation-/"
+            ]
+        }
+    ]
+}
